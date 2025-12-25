@@ -1,27 +1,27 @@
+def show_balance(balance):
+    print(f"Your balance is ${balance:.2f}")
 
+
+def deposit():
+    amount = float(input("Enter deposit amount: "))
+    if amount < 0:
+        print("invalid amount")
+        return 0
+    else:
+        return amount
+
+
+def withdraw(balance):
+    amount = float(input("Enter withdraw amount: "))
+    if amount < 0 or amount > balance:
+        print("invalid amount")
+        return 0
+    else:
+        return amount
 
 def main():
     balance = 0
     is_running = True
-
-    def show_balance():
-        print(f"Your balance is ${balance:.2f}")
-
-    def deposit():
-        amount = float(input("Enter deposit amount: "))
-        if amount < 0:
-            print("invalid amount")
-            return 0
-        else:
-            return amount
-
-    def withdraw():
-        amount = float(input("Enter withdraw amount: "))
-        if amount < 0 or amount > balance:
-            print("invalid amount")
-            return 0
-        else:
-            return amount
 
 
     while is_running:
@@ -34,11 +34,11 @@ def main():
         choice = input("Enter choice (1-4): ")
 
         if choice == "1":
-            show_balance()
+            show_balance(balance)
         elif choice == "2":
             balance += deposit()
         elif choice == "3":
-            balance -= withdraw()
+            balance -= withdraw(balance)
         elif choice == "4":
             is_running = False
         else:
